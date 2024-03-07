@@ -12,12 +12,12 @@ public class TilemapData
         }
 
     }
+   private Building building = null; 
+   
 
     private int layerIndex = -1;
-
-
     private bool hasTile = false;
-    private GameObject building = null; 
+ 
 
     public TilemapData(bool _hasTile)
     {

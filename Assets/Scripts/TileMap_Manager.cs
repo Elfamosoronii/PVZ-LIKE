@@ -20,8 +20,8 @@ public class TileMap_Manager : MonoBehaviour
         {
             for (int y = 0; y < tilemap.size.y; y++)
             {
-                datas[x, y] = new TilemapData();
-                datas[x, y].IsValid = tilemap.HasTile(_origin + new Vector3Int(x, y, 0));
+                datas[x, y] = new TilemapData(tilemap.HasTile(_origin + new Vector3Int(x, y, 0)));
+               
             }
 
         }
