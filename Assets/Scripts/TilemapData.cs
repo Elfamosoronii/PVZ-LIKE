@@ -17,8 +17,8 @@ public class TilemapData
 
     private int layerIndex = -1;
     private bool hasTile = false;
- 
 
+   
     public TilemapData(bool _hasTile)
     {
         hasTile = _hasTile;
