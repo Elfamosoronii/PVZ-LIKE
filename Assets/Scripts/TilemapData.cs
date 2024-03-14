@@ -4,6 +4,7 @@ using UnityEngine;
  [System.Serializable]
 public class TilemapData
 {
+    public bool hover = false;  
     public bool IsValid
     {
         get
