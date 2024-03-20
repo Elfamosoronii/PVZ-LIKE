@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
@@ -22,7 +23,7 @@ public class TileMap_Manager : MonoBehaviour
             for (int y = 0; y < tilemap.size.y; y++)
             {
                 datas[x, y] = new TilemapData(tilemap.HasTile(_origin + new Vector3Int(x, y, 0)));
-               
+
             }
 
         }
@@ -40,7 +41,7 @@ public class TileMap_Manager : MonoBehaviour
             {
                 _position = _origin + new Vector3Int(x, y);
                 Gizmos.color = datas[x, y].IsValid ? Color.green : Color.red;
-                if (datas[x, y].hover )
+                if (datas[x, y].hover)
                     Gizmos.color = Color.yellow;
                 Gizmos.DrawSphere(_position, 0.5f);
             }
@@ -48,13 +49,21 @@ public class TileMap_Manager : MonoBehaviour
     }
 
 
-public void GetTileData(Vector3 _position)
+    public TilemapData GetTileData(Vector3 _position)
     {
-        
+        if (datas is null) return null;
         _position -= tilemap.origin;
-    Vector3Int _intPosition = new Vector3Int((int)_position.x, (int)_position.y, 0);
-        if(_intPosition.x > 0 && _intPosition.y > 0 && _intPosition.x < datas.GetLength(0) && _intPosition.y <datas.GetLength(1) )
-            
-        datas[_intPosition.x, _intPosition.y].hover=true; 
+        Vector3Int _intPosition = new Vector3Int((int)_position.x, (int)_position.y, 0);
+        if (_intPosition.x >= 0 && _intPosition.y >= 0 && _intPosition.x < datas.GetLength(0) && _intPosition.y < datas.GetLength(1))
+        { 
+            return datas[_intPosition.x, _intPosition.y]; 
+        }
+        return null;
     }
-} 
+
+    public Vector2Int GetTilePosition(Vector2 _position)
+      {
+        return new Vector2Int(Mathf.RoundToInt(_position.x - .5f), Mathf.RoundToInt(_position.y - .5f));
+      }
+    
+}

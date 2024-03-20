@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
   _tileMapManager: {fileID: 1933760082}
+  building: {fileID: 7360530111933191198, guid: c4a8b1019382a194697edd372e071c25, type: 3}
 --- !u!114 &193194791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +197,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2c734b7a-2788-4f6f-be29-d54c2cf98830
     m_ActionName: Placement Map/Position[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 193194790}
+        m_TargetAssemblyTypeName: BuildingPlacement, Assembly-CSharp
+        m_MethodName: ValidateBuilding
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5ae79ce1-ed2f-40b0-8a6c-32e668938867
+    m_ActionName: Placement Map/Validate[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Placement Map

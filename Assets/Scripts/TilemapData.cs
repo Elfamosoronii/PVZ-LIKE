@@ -16,6 +16,15 @@ public class TilemapData
    private Building building = null; 
    
 
+    public Building Building 
+    { 
+        get { return building; } 
+        set {
+            if (building != value)
+                building = value;
+            } 
+    } 
+
     private int layerIndex = -1;
     private bool hasTile = false;
 
